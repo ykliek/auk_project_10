@@ -1,8 +1,16 @@
-package part_2;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                 :       ::    :: ::   ::   */
+/*   TriviaNight.java                             :+:      :+    :+ :+  :+    */
+/*                                               +:+:+     :+    :+ :+  :+    */
+/*   By: ykliek <yurii.kliek@auk.edu.ua>        +#   :+    +#    :+ +#:+      */
+/*                                             +#+#+#+#+   +#    +# +# +#     */
+/*   Created: 2023/10/03 23:38:39 by ykliek   #+       #+  #+    #+ #+  #+    */
+/*   Updated: 2023/10/03 23:38:40 by ykliek  ##         ##  ######  ##   ##   */
+/*                                                                            */
+/* ************************************************************************** */
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+package part_2;
 
 
 class TriviaNight {
@@ -16,7 +24,7 @@ class TriviaNight {
 	private String eventDescription;
 
 	public TriviaNight(String eventName, String eventDate, int numberOfParticipants, String mainTheme,
-	                   String registerUrl, String chatUrl, String eventLocation, String descriptionFilePath) {
+	                   String registerUrl, String chatUrl, String eventLocation, String eventDescription) {
 		this.eventName = eventName;
 		this.eventDate = eventDate;
 		this.numberOfParticipants = numberOfParticipants;
@@ -24,21 +32,7 @@ class TriviaNight {
 		this.registerUrl = registerUrl;
 		this.chatUrl = chatUrl;
 		this.eventLocation = eventLocation;
-		this.eventDescription = readDescriptionFromFile(descriptionFilePath);
-	}
-
-	private String readDescriptionFromFile(String filePath) {
-		StringBuilder contentBuilder = new StringBuilder();
-		try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
-			String line;
-			while ((line = br.readLine()) != null) {
-				contentBuilder.append(line).append("\n");
-			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			return "Error reading the description file.";
-		}
-		return contentBuilder.toString();
+		this.eventDescription = eventDescription;
 	}
 
 	public String getEventName() {
@@ -79,6 +73,10 @@ class TriviaNight {
 
 	public void setEventLocation(String eventLocation) {
 		this.eventLocation = eventLocation;
+	}
+
+	public void setEventDescription(String eventDescription) {
+		this.eventDescription = eventDescription;
 	}
 
 	public String getEventDescription() {
@@ -146,7 +144,8 @@ class TriviaNightCollection {
 	public void sort() {
 		for (int i = 0; i < count - 1; i++) {
 			for (int j = 0; j < count - i - 1; j++) {
-				if (events[j].getNumberOfParticipants() > events[j + 1].getNumberOfParticipants()) {
+				if (events[j].getNumberOfParticipants() >
+						events[j + 1].getNumberOfParticipants()) {
 					TriviaNight temp = events[j];
 					events[j] = events[j + 1];
 					events[j + 1] = temp;

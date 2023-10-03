@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                 :       ::    :: ::   ::   */
+/*   Main.java                                    :+:      :+    :+ :+  :+    */
+/*                                               +:+:+     :+    :+ :+  :+    */
+/*   By: ykliek <yurii.kliek@auk.edu.ua>        +#   :+    +#    :+ +#:+      */
+/*                                             +#+#+#+#+   +#    +# +# +#     */
+/*   Created: 2023/10/03 23:38:30 by ykliek   #+       #+  #+    #+ #+  #+    */
+/*   Updated: 2023/10/03 23:38:31 by ykliek  ##         ##  ######  ##   ##   */
+/*                                                                            */
+/* ************************************************************************** */
+
 package part_2;
 
 import java.util.Scanner;
@@ -68,7 +80,7 @@ public class Main {
 		String chatUrl = scanner.nextLine();
 		System.out.print("Event Location: ");
 		String eventLocation = scanner.nextLine();
-		System.out.print("Event Description File Path: ");
+		System.out.print("Event Description: ");
 		String descriptionFilePath = scanner.nextLine();
 
 		TriviaNight newEvent = new TriviaNight(eventName, eventDate, numberOfParticipants, mainTheme,
